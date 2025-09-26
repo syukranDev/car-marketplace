@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 import { CiSearch } from "react-icons/ci";
+import Data from "@/Shared/Data";
+
 
 const Search = () => {
   return (
@@ -18,12 +20,11 @@ const Search = () => {
 
         <Select>
             <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg" >
-                <SelectValue placeholder="Theme"/>
+                <SelectValue placeholder="Cars"/>
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
+                <SelectItem value="light">New</SelectItem>
+                <SelectItem value="dark">Old</SelectItem>
             </SelectContent>
         </Select>
 
@@ -31,12 +32,13 @@ const Search = () => {
         
         <Select>
             <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
-                <SelectValue placeholder="Theme" />
+                <SelectValue placeholder="Car Makes" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
+            
+                {Data.CarMakes.map((make)=>(
+                    <SelectItem key={make.id} value={make.name}>{make.name}</SelectItem>
+                ))}
             </SelectContent>
         </Select>
 
@@ -44,17 +46,18 @@ const Search = () => {
 
         <Select>
             <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
-                <SelectValue placeholder="Theme" />
+                <SelectValue placeholder="Pricing" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
+                {Data.Pricing.map((price)=>(
+                    <SelectItem key={price.id} value={price.amount.toString()}>${price.amount}</SelectItem>
+                ))}
             </SelectContent>
         </Select>
 
         <div>
-            <CiSearch className="text-lg bg-primary"/>
+            <CiSearch className="text-[50px] bg-primary text-white rounded-full p-3
+            hover:scale-105 transition-all cursor-pointer"/>
         </div>
 
     </div>
