@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
+import { CiSearch } from "react-icons/ci";
 
 const Search = () => {
   return (
@@ -26,7 +27,7 @@ const Search = () => {
             </SelectContent>
         </Select>
 
-        <Separator orientation="vertical" />
+        <Separator orientation="vertical" className="hidden md:block" />
         
         <Select>
             <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
@@ -39,7 +40,7 @@ const Search = () => {
             </SelectContent>
         </Select>
 
-        <Separator orientation="vertical" />
+        <Separator orientation="vertical" className="hidden md:block"  />
 
         <Select>
             <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
@@ -51,6 +52,10 @@ const Search = () => {
                 <SelectItem value="system">System</SelectItem>
             </SelectContent>
         </Select>
+
+        <div>
+            <CiSearch className="text-lg bg-primary"/>
+        </div>
 
     </div>
   )
